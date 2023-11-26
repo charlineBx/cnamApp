@@ -40,6 +40,8 @@ exports.login = (req, res) => {
 
       
         res.send(utilisateur);
+    }else {
+      console.log("Erreur d'authentification.");
     }
        
     };    
