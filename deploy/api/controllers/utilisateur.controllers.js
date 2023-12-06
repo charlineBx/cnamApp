@@ -17,10 +17,8 @@ exports.login = (req, res) => {
   // Test
   let pattern = /^[A-Za-z0-9]{1,20}$/;
   if (pattern.test(utilisateur.login) && pattern.test(utilisateur.password)) {
-    //if(utilisateur.login === "emma" && utilisateur.password === "toto"){
+    if(utilisateur.login === "emma" && utilisateur.password === "toto"){
 
-    //}
-    
       const uuid = uuidv4 ();
         const utilisateur = {
           nom: "Maurice",
@@ -43,7 +41,7 @@ exports.login = (req, res) => {
         
         res.send(utilisateur);
     
-       
+      }  
     };    
 };
 
