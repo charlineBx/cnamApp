@@ -1,9 +1,5 @@
 FROM php:7.4-apache
 
-<<<<<<< HEAD
-COPY ./deploy/ /var/www/html
-
-=======
 RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
@@ -23,7 +19,6 @@ RUN npm install \
  && env PATH=$PATH:/usr/local/lib/node_modules/pm2/bin/pm2
 
 
->>>>>>> ffab357092377633ef0294e2ff08087f894a054f
 # Exposer le port 80 pour permettre les connexions entrantes
 EXPOSE 80
 
