@@ -11,17 +11,18 @@ exports.get = (req, res) => {
 		];
 		
 	// Récupérer le terme de recherche depuis la requête
-    const searchTerm = req.query.query.toLowerCase();
+   /* const searchTerm = req.query.query.toLowerCase();
 
     // Filtrer le catalogue en fonction du terme de recherche
     const filteredCatalogue = catalogue.filter(product =>
         product.titre.toLowerCase().includes(searchTerm) ||
         product.description.toLowerCase().includes(searchTerm)
         // Vous pouvez étendre la logique de filtrage à d'autres champs si nécessaire
-    );
+    );*/
 
 	res.setHeader('Content-Type', 'application/json');
       
-    res.send(filteredCatalogue);
+    //res.send(filteredCatalogue);
+	res.send(catalogue);
    };    
 
