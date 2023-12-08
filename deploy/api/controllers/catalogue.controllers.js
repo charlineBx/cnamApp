@@ -10,7 +10,7 @@ exports.get = (req, res) => {
 				{ titre: "Canyon Speedmax CF SL 8.0",description:"Vélo de chrono", prix: 3999, qte: 4 ,image: "./assets/images/canyon_cf_sl_speedmax.jpg"}
 		];
 		const searchTerm = req.query.query.toLowerCase();
-
+		console.log(searchTerm);
 		// Vérifier si un terme de recherche est fourni
 		if (searchTerm) {
 		
