@@ -9,20 +9,22 @@ exports.get = (req, res) => {
 				{ titre:  "Canyon Ultimate CF SL 7.0", description:"Vélo de course",prix: 3000, qte: 1 ,image: "./assets/images/canyon_cf_sl_7.jpeg"},
 				{ titre: "Canyon Speedmax CF SL 8.0",description:"Vélo de chrono", prix: 3999, qte: 4 ,image: "./assets/images/canyon_cf_sl_speedmax.jpg"}
 		];
-		
-	// Récupérer le terme de recherche depuis la requête
-   /* const searchTerm = req.query.query.toLowerCase();
+	if(rep != null){
+		// Récupérer le terme de recherche depuis la requête
+		const searchTerm = req.query.query.toLowerCase();
 
-    // Filtrer le catalogue en fonction du terme de recherche
-    const filteredCatalogue = catalogue.filter(product =>
-        product.titre.toLowerCase().includes(searchTerm) ||
-        product.description.toLowerCase().includes(searchTerm)
-        // Vous pouvez étendre la logique de filtrage à d'autres champs si nécessaire
-    );*/
-
-	res.setHeader('Content-Type', 'application/json');
-      
-    //res.send(filteredCatalogue);
+		// Filtrer le catalogue en fonction du terme de recherche
+		const filteredCatalogue = catalogue.filter(product =>
+			product.titre.toLowerCase().includes(searchTerm) ||
+			product.description.toLowerCase().includes(searchTerm)
+			// Vous pouvez étendre la logique de filtrage à d'autres champs si nécessaire
+		);
+	
+		res.setHeader('Content-Type', 'application/json');
+		  
+		res.send(filteredCatalogue);
+	}
+	
 	res.send(catalogue);
    };    
 
