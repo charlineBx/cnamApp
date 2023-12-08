@@ -21,10 +21,11 @@ exports.get = (req, res) => {
 		);
 	
 		res.setHeader('Content-Type', 'application/json');
-		  
+		console.log("catalogue avec filtre.");
 		res.send(filteredCatalogue);
+	}else{
+		console.log("catalogue sans filtre.");
+		res.send(catalogue);
 	}
-	
-	res.send(catalogue);
    };    
 
