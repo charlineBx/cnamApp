@@ -12,7 +12,7 @@ exports.get = (req, res) => {
 		const searchTerm = req.query.query.toLowerCase();
 		console.log(searchTerm);
 		// Vérifier si un terme de recherche est fourni
-		if (searchTerm) {
+		if (searchTerm != "") {
 		
 
 		// Filtrer le catalogue en fonction du terme de recherche
