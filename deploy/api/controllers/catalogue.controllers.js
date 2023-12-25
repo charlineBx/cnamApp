@@ -14,9 +14,9 @@ const db = require("../models");
 ];
 
   exports.get = async (req, res) => {
-	console.log("COUCOU22222");
+	
 	//if(req.query.query){
-		console.log("COUCOU");
+		
 		const searchTerm = req.query.query.toLowerCase();
 		//let pattern = /^[A-Za-z0-9]{1,20}$/;
 		//if (pattern.test(searchTerm)) {
@@ -30,6 +30,7 @@ const db = require("../models");
 				const produits = await Catalogue.findAll({ where: condition });
 				console.log(produits);
 			// Envoi des produits filtrés en tant que réponse
+			res.setHeader('Content-Type', 'application/json');
 			res.send(produits);
 
 		//}else {
