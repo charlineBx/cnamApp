@@ -5,7 +5,7 @@ const db = require("../models");
 
   exports.get = async (req, res) => {
 	console.log("COUCOU22222");
-	if(req){
+	if(req.query.query){
 		console.log("COUCOU");
 		const searchTerm = req.query.query.toLowerCase();
 		let pattern = /^[A-Za-z0-9]{1,20}$/;
