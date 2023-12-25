@@ -3,31 +3,31 @@ const db = require("../models");
   const Catalogue = db.produit;
   const Op = db.Sequelize.Op;
 
-exports.get = async (req, res) => {
+  exports.get = async (req, res) => {
 	console.log("COUCOU22222");
-		if(req){
-			console.log("COUCOU");
-			const searchTerm = req.query.query.toLowerCase();
-			let pattern = /^[A-Za-z0-9]{1,20}$/;
-            if (pattern.test(searchTerm)) {
-				const condition = {
-					titre: {
-					  [Op.like]: `%${searchTerm}%` // Utilisation de l'opérateur LIKE pour chercher un titre similaire
-					}
-				  };
+	if(req){
+		console.log("COUCOU");
+		const searchTerm = req.query.query.toLowerCase();
+		let pattern = /^[A-Za-z0-9]{1,20}$/;
+		if (pattern.test(searchTerm)) {
+			const condition = {
+				titre: {
+					[Op.like]: `%${searchTerm}%` // Utilisation de l'opérateur LIKE pour chercher un titre similaire
+				}
+				};
 
-				  console.log(`Récupération des produits avec un titre similaire à "${searchTerm}"`);
-				  const produits = await Catalogue.findAll({ where: condition });
-				  console.log(produits);
-				// Envoi des produits filtrés en tant que réponse
-				res.send(produits);
+				console.log(`Récupération des produits avec un titre similaire à "${searchTerm}"`);
+				const produits = await Catalogue.findAll({ where: condition });
+				console.log(produits);
+			// Envoi des produits filtrés en tant que réponse
+			res.send(produits);
 
-			}else {
-				res.status(400).send({
-				message: "Saisie incorrect." 
-				});
-  			}
-		
+		}else {
+			res.status(400).send({
+			message: "Saisie incorrect." 
+			});
+		}
+	
 	}else{
 		console.log("catalogue sans filtre.");
 		const produits = await Catalogue.findAll();
