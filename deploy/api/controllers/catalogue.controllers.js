@@ -4,12 +4,27 @@ const Op = db.Sequelize.Op;
 
 exports.get = async (req, res) => {
         
-		const searchTerm = req.query.query.toLowerCase();
-		const catalogue = await Catalogue.findOne();
-		
-		res.setHeader('Content-Type', 'application/json');
-		console.log("catalogue avec filtre.");
-		res.send(catalogue);
+	try {
+        const searchTerm = req.query.query.toLowerCase();
+        
+        // Utilisation de findAll avec un objet de filtre
+        const catalogue = await Catalogue.findAll({
+            where: {
+                // Utilisation de Sequelize Op pour la recherche partielle sur un champ
+                nomDuChamp: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+                // Remplacez 'nomDuChamp' par le nom réel du champ sur lequel vous voulez faire la recherche
+            }
+        });
+        
+        res.setHeader('Content-Type', 'application/json');
+        console.log("Catalogue avec filtre :", catalogue);
+        res.send(catalogue);
+    } catch (error) {
+        console.error("Erreur lors de la récupération du catalogue :", error);
+        res.status(500).json({ error: "Erreur lors de la récupération du catalogue" });
+    }
    };    
 
 
