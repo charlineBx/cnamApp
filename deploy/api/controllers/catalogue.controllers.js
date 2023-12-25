@@ -11,7 +11,7 @@ exports.get = async (req, res) => {
         const catalogue = await Catalogue.findAll({
             where: {
                 // Utilisation de Sequelize Op pour la recherche partielle sur un champ
-                nomDuChamp: {
+                titre: {
                     [Op.like]: `%${searchTerm}%`
                 }
                 // Remplacez 'nomDuChamp' par le nom réel du champ sur lequel vous voulez faire la recherche
