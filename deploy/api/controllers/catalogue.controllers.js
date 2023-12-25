@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 exports.get = async (req, res) => {
         
 		const searchTerm = req.query.query.toLowerCase();
-		const catalogue = await Catalogue.findAll();
+		const catalogue = await Catalogue.findOne();
 		
 		res.setHeader('Content-Type', 'application/json');
 		console.log("catalogue avec filtre.");
