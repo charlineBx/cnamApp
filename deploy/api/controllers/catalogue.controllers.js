@@ -4,8 +4,9 @@ const db = require("../models");
   const Op = db.Sequelize.Op;
 
 exports.get = (req, res) => {
-
-		/*if(req){
+	console.log("COUCOU22222");
+		if(req){
+			console.log("COUCOU");
 			const searchTerm = req.query.query.toLowerCase();
 			let pattern = /^[A-Za-z0-9]{1,20}$/;
             if (pattern.test(searchTerm)) {
@@ -27,11 +28,11 @@ exports.get = (req, res) => {
 				});
   			}
 		
-	}else{*/
+	}else{
 		console.log("catalogue sans filtre.");
 		const produits = Catalogue.findAll();
 		res.send(produits);
-	//}
+	}
    };    
 
 /*
