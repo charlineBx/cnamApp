@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Catalogue = sequelize.define("catalogue", {
+    const Catalogue = sequelize.define("produit", {
   
       titre: {
         type: Sequelize.STRING,
@@ -10,10 +10,10 @@ module.exports = (sequelize, Sequelize) => {
         allowNull : false
       },    
       prix: {
-          type: Sequelize.NUMBER,
+          type: Sequelize.INTEGER,
       },
       qte: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
     },
       image: {
           type: Sequelize.STRING,

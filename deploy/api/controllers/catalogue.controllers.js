@@ -1,6 +1,6 @@
 
 const db = require("../models");
-  const Catalogue = db.catalogue;
+  const Catalogue = db.produit;
   const Op = db.Sequelize.Op;
 
 exports.get = async (req, res) => {
