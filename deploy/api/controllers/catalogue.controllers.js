@@ -3,7 +3,7 @@ const db = require("../models");
   const Catalogue = db.catalogue;
   const Op = db.Sequelize.Op;
 
-exports.get = (req, res) => {
+exports.get = async (req, res) => {
 	console.log("COUCOU22222");
 		if(req){
 			console.log("COUCOU");
@@ -17,7 +17,7 @@ exports.get = (req, res) => {
 				  };
 
 				  console.log(`Récupération des produits avec un titre similaire à "${searchTerm}"`);
-				  const produits = Catalogue.findAll({ where: condition });
+				  const produits = await Catalogue.findAll({ where: condition });
 				  console.log(produits);
 				// Envoi des produits filtrés en tant que réponse
 				res.send(produits);
@@ -30,7 +30,7 @@ exports.get = (req, res) => {
 		
 	}else{
 		console.log("catalogue sans filtre.");
-		const produits = Catalogue.findAll();
+		const produits = await Catalogue.findAll();
 		res.send(produits);
 	}
    };    
