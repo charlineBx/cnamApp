@@ -8,8 +8,8 @@ const db = require("../models");
 	if(req.query.query){
 		console.log("COUCOU");
 		const searchTerm = req.query.query.toLowerCase();
-		let pattern = /^[A-Za-z0-9]{1,20}$/;
-		if (pattern.test(searchTerm)) {
+		//let pattern = /^[A-Za-z0-9]{1,20}$/;
+		//if (pattern.test(searchTerm)) {
 			const condition = {
 				titre: {
 					[Op.like]: `%${searchTerm}%` // Utilisation de l'opérateur LIKE pour chercher un titre similaire
@@ -22,11 +22,11 @@ const db = require("../models");
 			// Envoi des produits filtrés en tant que réponse
 			res.send(produits);
 
-		}else {
-			res.status(400).send({
-			message: "Saisie incorrect." 
-			});
-		}
+		//}else {
+		//	res.status(400).send({
+		//	message: "Saisie incorrect." 
+		//	});
+		//}
 	
 	}else{
 		console.log("catalogue sans filtre.");
