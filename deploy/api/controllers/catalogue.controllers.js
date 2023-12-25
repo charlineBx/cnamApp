@@ -1,6 +1,6 @@
 
 const db = require("../models");
-  const Catalogue = db.produit;
+  const Catalogue = db.Produit;
   const Op = db.Sequelize.Op;
 
   const catalogue = [
@@ -15,7 +15,7 @@ const db = require("../models");
 
   exports.get = async (req, res) => {
 	console.log("COUCOU22222");
-	if(req.query.query){
+	//if(req.query.query){
 		console.log("COUCOU");
 		const searchTerm = req.query.query.toLowerCase();
 		//let pattern = /^[A-Za-z0-9]{1,20}$/;
@@ -30,7 +30,7 @@ const db = require("../models");
 				const produits = await Catalogue.findAll({ where: condition });
 				console.log(produits);
 			// Envoi des produits filtrés en tant que réponse
-			res.send(catalogue);
+			res.send(produits);
 
 		//}else {
 		//	res.status(400).send({
@@ -38,11 +38,11 @@ const db = require("../models");
 		//	});
 		//}
 	
-	}else{
+	/*}else{
 		console.log("catalogue sans filtre.");
 		const produits = await Catalogue.findAll();
 		res.send(catalogue);
-	}
+	}*/
    };    
 
 /*
