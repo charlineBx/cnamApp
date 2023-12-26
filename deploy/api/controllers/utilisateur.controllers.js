@@ -56,15 +56,22 @@ exports.createUtilisateur = async (req,res) => {
     const {nom, prenom,login, password, email } = req.body;
 
     const nouvelUtilisateur = await db.Utilisateur.create({
+      id: 6,
       nom : nom,
       prenom : prenom,
+      adresse : '',
+      codepostal: '',
+      ville: '',
       email : email,
+      sexe: '',
       login : login,
-      password : password
+      password : password,
+      telephone:''
     });
     res.status(201).json({message : 'Utilisateur créé avec succès',  utilisateur: nouvelUtilisateur });
   } catch (error) {
-    console.error('Erreur lors de la création de l\'utilisateur :', error,req.body);
+    console.log(req.body);
+    console.error('Erreur lors de la création de l\'utilisateur :', error);
     res.status(500).json({ error: 'Erreur lors de la création de l\'utilisateur' });
   }
 };
