@@ -51,4 +51,20 @@ exports.login = (req, res) => {
   }
 };
 
+exports.createUtilisateur = async (req,res) => {
+  try {
+    const {nom, prenom, email } = req.body;
+
+    const nouvelUtilisateur = await db.Utilisateur.create({
+      nom,
+      prenom,
+      email
+    });
+    res.status(201).json({message : 'Utilisateur créé avec succès',  utilisateur: nouvelUtilisateur });
+  } catch (error) {
+    console.error('Erreur lors de la création de l\'utilisateur :', error);
+    res.status(500).json({ error: 'Erreur lors de la création de l\'utilisateur' });
+  }
+};
+
 
