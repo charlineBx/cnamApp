@@ -14,7 +14,6 @@ exports.get = async (req, res) => {
                 titre: {
                     [Op.like]: `%${searchTerm}%`
                 }
-                // Remplacez 'nomDuChamp' par le nom réel du champ sur lequel vous voulez faire la recherche
             }
         });
         
