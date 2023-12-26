@@ -55,7 +55,7 @@ exports.createUtilisateur = async (req,res) => {
   try {
     const {nom, prenom,login, password, email } = req.body;
 
-    const nouvelUtilisateur = await db.Utilisateur.create({
+    const nouvelUtilisateur = await Utilisateur.create({
       nom : nom,
       prenom : prenom,
       adresse : '',
