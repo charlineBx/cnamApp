@@ -64,7 +64,7 @@ exports.createUtilisateur = async (req,res) => {
     });
     res.status(201).json({message : 'Utilisateur créé avec succès',  utilisateur: nouvelUtilisateur });
   } catch (error) {
-    console.error('Erreur lors de la création de l\'utilisateur :', error);
+    console.error('Erreur lors de la création de l\'utilisateur :', error,req.body);
     res.status(500).json({ error: 'Erreur lors de la création de l\'utilisateur' });
   }
 };
