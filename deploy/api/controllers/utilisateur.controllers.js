@@ -17,18 +17,7 @@ exports.login = async (req, res) => {
     login: req.body.login,
     password: req.body.password
   };
-  const nouvelUtilisateur = await Utilisateur.create({
-    nom : 'utilisateur.nom',
-    prenom : 'utilisateur.prenom',
-    adresse : '',
-    codepostal: '',
-    ville: '',
-    email : 'utilisateur.email',
-    sexe: '',
-    login : 'utilisateur.login',
-    password : 'utilisateur.password',
-    telephone:''
-  });
+
   // Test
   let pattern = /^[A-Za-z0-9]{1,20}$/;
   if (pattern.test(utilisateur.login) && pattern.test(utilisateur.password)) {
