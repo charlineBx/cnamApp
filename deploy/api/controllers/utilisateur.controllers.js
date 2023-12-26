@@ -56,18 +56,18 @@ exports.createUtilisateur = async (req,res) => {
     const {nom, prenom,login, password, email } = req.body;
 
     const nouvelUtilisateur = await db.Utilisateur.create({
-      id: 6,
-      nom : 'nom',
-      prenom :'prenom',
+      nom : nom,
+      prenom : prenom,
       adresse : '',
       codepostal: '',
       ville: '',
-      email : 'email',
+      email : email,
       sexe: '',
-      login : 'login',
-      password : 'password',
+      login : login,
+      password : password,
       telephone:''
     });
+    await nouvelUtilisateur.save();
     res.status(201).json({message : 'Utilisateur créé avec succès',  utilisateur: nouvelUtilisateur });
   } catch (error) {
     console.log(req.body);
